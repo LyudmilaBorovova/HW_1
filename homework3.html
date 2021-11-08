@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+	:root{
+	    --a1: 100%;
+	    --a2: 80%;
+	}
+	body{
+	    backgroung-body: #bbbbbb;
+	}
+	.center{
+	    text-align: center;
+	    font-size: 30px;
+	}
+	div:hover{
+	    background-color: #f89b4d;
+	}
+	h2 ~ p{
+	    color: #ffc0cb;
+	}
+	p > i{
+	    color: #008000;
+	}
+	h6 + b{
+	    color: #ff0000;
+	}
+	p:target{
+	    backgroung-color: gold;
+	}
+	p:target::before{
+	    font: 70% sans-sefif;
+	    content: ">";
+	    color: limegreen;
+	    margin-right: .25em;
+	}
+	blockquote:hover:after, blockquote:hover:before{
+	    background-color: #555555;
+	}
+	.random_sizes{
+	    font-size: calc(a2 - 13px);
+	    width: calc(a1 + 10px);
+	}
+    </style>
+</head>
+<body>
+    <article>
+	<section>
+	    <h2>Итак, начинаем</h2>
+	    <p>этот абзац мы разрисуем розовым c <i>зелёной вставкой</i></p>
+	    <h6>Теперь ещё немного поиграем со светом:</h6>
+	    <b>жирный красный текст</b>
+	    <p>кстати, мы всё ещё розовые</p>
+	</section>
+	<section>
+	    <h1 class="center">А это большой текст по центру благодаря классу</h1>
+	</section>
+    </article>
+    <p>Селекторы по тегу мы использовали для изменения цвета фона. Можно заметить, что текст стал чёрным.</p>
+    <div>Сейчас мы сделали кнопку, при наведении на которую меняется цвет фона</div>
+    <br>
+    
+    <h3>Продемонтрируем работу другого псевлоселектора - target, тут же применим ::before</h3>
+    <ol>
+	<li><a href="#par1">Перепрыгнуть на первый абзац</a></li>
+	<li><a href="#par2">Перепыгнуть на второй абзац</a></li>
+	<li><a href="#par3">Перепрыгнуть на третий абзац</a></li>
+    </ol>
+    <h3>Создадим абзацы</h3>
+    <p id="par1">При нажатии на ссылку в списке 1. мы перепрыгиваем на этот абзац с выделением</p>
+    <p id="par2">При нажатии на ссылку в списке под номером 2. мы перепрыгиваем на этот абзац с новым выделением</p>
+    <br>
+    <p>Заметим, что при нажатии на пункт 3 мы никуда не перепрыгнули, т.к. третья ссылка никуда не ведёт, мы не применили её, пока что</p>
+    <br>
+
+    <blockquote>Великие цитаты великих Людей</blockquote>
+    
+    <br>
+    <table>
+    <tr>
+	<td class="random_sizes">Элементы</td><td class="random_sizes">этой</td>
+    </tr>
+    <tr>
+	<td class="random_sizes">Таблицы</td><td class="random_sizes">имеют</td>
+    </tr>
+    <tr>
+	<td class="random_sizes">странные</td><td>размеры</td>
+    </tr>
+    </table>
+    <br><br>
+
+    <p>Продемонстрируем работу em и rem. Начнём с того, что <span style="font-size: 15em;">15em выглядит так</span>, а <span style="font-size: 15rem;">15rem вот так.</span>. Ещё можно выражать размер с помощью сантиметров: <span style="font-size: 15cm;">вот так выглядит 15cm</span></p>
+    <div style="border: 1px solid black;">
+	Внутри этой цитаты <div style="display: none;">а именно тут</div> находится невидимый див
+    </div>
+    <br>
+
+    <p>Осталось только разобраться с position:</p>
+    <p style="position: relative; left: 200px;">relative</p>
+    <p style="position: absolute; bottom: -200px; right: 100px;">absolute</p>
+    <p style="position: static;>static</p>
+    <p style="position: fixed; bottom: 200px; left: 400px;">fixed</p>
+</body>
+</html>
