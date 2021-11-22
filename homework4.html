@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script type="text/javascript">
+	globalThis["Important"] = 1912;
+	function exp(n){
+	    let e=2,718281828485;
+	    let res=1;
+	    if(n===0)
+		return p;
+	    else{
+		for(let pow = 0; pow < n; pow++)
+			res=res*e;
+		return res;
+	    }
+	}
+	console.log("Погнали. Пункт 1. В качестве примера взяли экспоненту: e(0) = %f, e(2) = %f", exp(0), exp(2));
+
+	console.log("Пункт 2.");
+	{
+	    var local = 2021;
+	    console.log("Выведем локальную переменную внутри блока, заданную с помощью var: %d", local);
+	}
+	console.log("Попытаемся вывести вне блока: %d", local);
+	{
+	    let locstr="nike";
+	    console.log("Выведем локальную переменную внутри блока, заданную с помощью let: %s", locstr);
+	}
+	console.log("Попытаемся вывести вне блока: %s", locstr);
+	try{
+	    console.log("Прикол, получилась ошибка при попытке вывести let вне блока: %s", locstr);
+	}
+	catch(error){
+	    console.log("Посмотрим, что это за ошибка: %s". error.name);
+	}
+
+	{
+	    console.log("Теперь пункт 3.");
+	    let var1 = 666;
+	    let var2 = "666";
+	    console.log("Сначала var1 == var2: ", var1 == var2);
+	    console.log("Теперь var1 === var2: ". var1 === var2);
+	}
+
+	{
+	    console.log("Выполним пункт 4.");
+	    console.log("typeof(exp) = %s", typeof(exp));
+	    console.log("typeof(\"bred\") = %s", typeof("bred"));
+	}
+
+	{
+	    let mas = [0, 1, 2, 3, 4];
+	    console.log("Мы бахнули массив, давайте теперь выполним пункт 5");
+	    for(let i of mas){
+		console.log("%d", i);
+	    }
+	}
+	
+	{
+	    console.log("Выполняем пункт 6. Мы недаром в начале задали глобалзис: Important = %d", Important);
+	}
+
+	{
+	    console.log("Уже 7 пункт!");
+	    let strangefunc = (var1, var2, var3) => (var1 * var2 + var3);
+	    strangefunc(1, 2, 3);
+	    strangefunc(0, 1, 2);
+	}
+
+	{
+	    console.log("Мы умнички, уже 8 пункт! Сейчас будет что-то на странном.");
+	    let [var1, var2, var3, var4] = [666, "666", true, exp(2)];
+	    console.log("var1 = %d", var1);
+	    console.log("var2 = %s", var2);
+	    console.log("var3 = %d", var3);
+	    console.log("var4 = %f", var4);
+	}
+	
+	{
+	    console.log("Дай бог, голова ещё соображает. Пункт 9.");
+	    console.log("exp(4) = %f", Math.exp(4));
+	}
+    </script>
+</body>
+</html>
