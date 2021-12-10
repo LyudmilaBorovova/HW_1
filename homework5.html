@@ -1,0 +1,164 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    <script type="text/javascript">
+	{
+	    let mas = {
+		var1: 0,
+		var2: 0,
+		var3: 0,
+		printer() {
+		    return `(${this.var1}, ${this.var2}, ${this.var3})`;
+		},
+		expox() {
+		    return Math.exp(this.var1 * this.var2 * this.var3);
+		} 
+	    }
+	    print(mas.va1);
+	    let vec1 = Object.create(mas);
+	    print(vec1);
+	    print(vec1.printer());
+	    print(vec1.expox());
+	    mas.var1 = 666;
+	    print(vec1.var1);
+	}
+
+	{
+	    class mas {
+		constructor(var1, var2, var3) {
+		    this.var1 = var1;
+		    this.var2 = var2;
+		    this.var3 = var3;
+		    this.dim = "3d";
+		}
+		printer() {
+		    return `(${this.var1}, ${this.var2}, ${this.var3})`;
+		}
+		expox() {
+		    return Math.exp(this.var1 * this.var2 * this.var3);
+		} 
+	    }
+	    let vec1 = new mas(1, 2, 3);
+	    print(vec1.printer());
+	    print(vec1.expox());
+	    print(vec1.dim);
+	}
+
+	{
+	    let predator = {
+	        eats: true
+	    }
+
+	    let lion = {
+	        growls: true
+	    };
+
+	    Object.setPrototypeOf(lion, predator);
+	    print(lion.eats);
+	    print(lion.growls);
+	    print(Object.getPrototypeOf(lion));
+	}
+
+	{
+	    class Rectangle {
+		constructor(h, w){
+	    	    this.h = h;
+		    this.w = w;
+	        }
+	    }
+
+	    class Square extends Rectangle {
+		constructor(l) {
+		    super(l, l);
+		}
+	    }
+	    let s = new Square(2);
+	    print(s);
+	}
+
+	{
+	    let mas = {var1: 0, var2: 0, var3: 0};
+	    Object.defineProperty(mas, "dim", {
+	        enumerable: false,
+	        value: "3d",
+	    });
+	    print(mas.dim);
+	    for(let i in mas){
+	        print(i);
+	    }
+
+	    Object.defineProperty(mas, "w", {
+	        set: function(value) {
+	    	    this.dim = "4d";
+	    	    return value;
+	        }
+	    });
+	    print(mas.dim);
+	    mas.w = 1;
+	    print(mas.dim);
+	}
+
+	{
+	    function print_input() {
+	        var Str = [].join.call(arguments, ';');
+	        print(Str);
+	    }
+	    print_input(666, 2001, "уже недоступны");
+	}
+
+	{
+	    for(let i in String){
+	        print(i);
+	    }
+	    String.prototype.printer = function(){
+	        console.log(this);
+	    }
+	    str = "Moyu nomera";
+	    str.printer();
+	}
+
+	{
+	    class mas {
+		constructor(var1, var2, var3) {
+		    this.var1 = var1;
+		    this.var2 = var2;
+		    this.var3 = var3;
+		    this._dim = "3d";
+		}
+		get dim(){
+		    return this._dim;
+		}
+	    }
+	    let vec1 = new mas(6, 6, 1, "3d");
+	    vec1.var1 = 0;
+	    vec1.dim = "4d";
+	    print(vec1.dim);
+	    print(vec1.var1);
+
+	    class try2 {
+	        #MaxNum = 256;
+		#checkNum(num) {
+		    if(num > this.MaxNum) throw new Error("Overflow");
+		}
+	    }
+	}
+
+	{
+	    let Hi = {
+	        printHelloWorld(){
+	    	    print(`${this.name} says: Hello World!`);
+		},
+	    };
+	    class User{
+	        constructor(name) {
+		    this.name = name;
+		}
+	    }
+	    Object.assign(User.prototype, Hi);
+	    new User("Freqenbook").printHelloWorld();
+	}
+    </script>
+</body>
+</html>
