@@ -1,0 +1,78 @@
+<html>
+    <head>
+	<meta charset="utf-8">
+
+    </head>
+    <body>
+	<div class="class1">
+	    <div class="class2">
+		<p>First p</p>
+	    </div>
+	</div>
+
+	<h1 id = 'h1'><i>First h1</i></h1>
+	<p style = "color: red"><b>Second p</b></p>
+	<div id = 'div1'><p id = 'p'>Just a div</p></div>
+	
+	<button id = "button1">Button</button>
+	<a id = "a"  href = "#">Link</a>
+
+	<script type="text/javascript">
+	    let print = x => console.log(x);
+	    {
+		{
+		    const $nPe_1 = document.createElement('p');
+		    $newP_1.textContent = "Something inside";
+		    let elem = document.body;
+		    elem.appendChild($nPe_1);
+
+		    elem.removeChild($nPe_1); 
+
+		    for (let i = 0; i < document.body.childNodes.length; i++) {
+    			console.log("%d: %s", i, document.body.childNodes[i]);
+    			print(document.body.childNodes[i].attributes);
+		    }
+		
+		    function print_input() {
+			let Str = [].join.call(arguments, ';');
+			print(Str);
+		    }
+		    print_input("arg1", "arg2", "arg3");
+		}
+		
+		console.log("Первый потомок (innerHtml) :", document.body.firstElementChild.innerHTML);
+		
+		console.log("Последний узел", document.body.lastChild);
+		console.log("Последний узел", document.body.childNodes[l-1]);
+		
+		console.log("Предыдущий узел", document.body.previousSibling);
+		console.log("Предыдущий узел", document.getElementById('div1').previousElementSibling);
+		
+		{
+		    let span1 = document.createElement('span');
+		    span1.textContent = "Div перед p";
+		    div1.insertBefore(span1, div1.children[0]);
+		}
+
+		console.log("Find 1st p ", document.querySelector('p'));
+		
+		btn1.onclick = function(event) {
+		    let elem = document.getElementById('h1');
+		    elem.classList.toggle("new_style");
+		}			
+
+		let listener = function(event) {
+			alert("Stop");
+		}
+		document.body.addEventListener('click', listener, false);
+		document.body.removeEventListener('click', listener, false);
+
+		function DiffTarg(event) {
+		    event.target.style.color = 'red';
+		}
+		
+		document.addEventListener("click", e => alert("Cupture: " + e.target.tagName, {capture: true}));
+		document.addEventListener("click", e => alert("Bubble: " + e.target.tagName));
+	    }
+    </body>
+</html>
