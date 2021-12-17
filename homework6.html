@@ -22,7 +22,7 @@
 	    {
 		{
 		    const $nPe_1 = document.createElement('p');
-		    $newP_1.textContent = "Something inside";
+		    $nPe_1.textContent = "Something inside";
 		    let elem = document.body;
 		    elem.appendChild($nPe_1);
 
@@ -64,8 +64,8 @@
 		let listener = function(event) {
 			alert("Stop");
 		}
-		document.body.addEventListener('click', listener, false);
-		document.body.removeEventListener('click', listener, false);
+		document.body.addEventListener('click', listener, {once: false});
+		document.body.removeEventListener('click', listener, {once: false});
 
 		function DiffTarg(event) {
 		    event.target.style.color = 'red';
