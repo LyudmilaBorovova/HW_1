@@ -1,0 +1,40 @@
+<html>
+    <head>
+	<meta charset='utf-8'>
+    </head>
+
+    <body>
+	//с помощью форм
+	<form action="homework7.php" method="post">
+	    <input type="text" name="myname" value="Lyuda">
+	    <input type="text" name="clear">
+	    <input type="submit" value="Send"> 
+	    <input type="reset" value="Reset">
+	</form>
+
+	<script>
+
+	    let data = {"Name":"Lyuda", "Group":"B07-903"};
+	    console.log("data = ", data);
+	    function fetch1 (){
+		fetch("homework7.php", {
+		    method: "post",
+		    body: JSON.stringify(data)
+		})
+		.then((result) => {
+		    return result.json();
+		})
+		.then((info) => {
+		    console.log(info);
+		})
+		.catch((err) => {
+		    console.log('Error: ' + err.message);
+		    console.log(err.response);
+		});
+		
+	    }
+	
+	</script>
+	<button onclick="fetch1()">Fetch</button>
+    </body>
+</html>
